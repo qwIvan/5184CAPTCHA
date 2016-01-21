@@ -2,6 +2,6 @@
 识别5184验证码
 ### usage
 ```shell
-java Main.java
-javac Main
+javac Main.java
+java Main
 ```
