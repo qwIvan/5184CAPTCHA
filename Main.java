@@ -201,8 +201,9 @@ public class Main {
         return img.getSubimage(1,1,width-1,height-1);
     }
 
-    public static String getAllOcr(String filePath) throws Exception {
+    public static String getAllOcr(int index) throws Exception {
 
+        String filePath = "img/"+index+".png";
         BufferedImage img = ImageIO.read(new File(filePath));
         img = removeGanRaoLine(img);//去掉干扰线
         img = removeBackgroud(img);//黑白化
@@ -215,8 +216,9 @@ public class Main {
 //			ImageIO.write(bi, "PNG", new File("temp/"+getSingleCharNum(singleChar)));//添加对比源
             result += singleChar;
         }
-        ImageIO.write(ImageIO.read(new File(filePath)), "PNG", new File("result/"+result+".png"+"("+new Random().nextInt(10000)));
-        return result;
+        String outputPath = "result/"+result+'@'+index+".png";
+        ImageIO.write(ImageIO.read(new File(filePath)), "PNG", new File(outputPath));
+        return outputPath;
     }
 
     public static String getSingleCharNum(String singleChar){
@@ -228,7 +230,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         long start = System.currentTimeMillis();
         for (int i = 0; i < 700; ++i) {
-            String text = getAllOcr("img/" + i  + ".png");
+            String text = getAllOcr(i);
             System.out.println(i + ".png = " + text);
         }
         System.out.println(System.currentTimeMillis()-start);
