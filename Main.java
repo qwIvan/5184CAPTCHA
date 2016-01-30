@@ -228,9 +228,9 @@ public class Main {
         for (int i = 0; i < 700; ++i) {
             String filePath = "img/"+i+".png";
             String result = getAllOcr(filePath);
-            String outputPath = "result/"+i+"=>"+result+".png";
-            ImageIO.write(ImageIO.read(new File(filePath)), "PNG", new File(outputPath));
-            System.out.println(filePath + ".png >>>>> " + outputPath);
+            //String outputPath = "result/"+i+"=>"+result+".png";
+            //ImageIO.write(ImageIO.read(new File(filePath)), "PNG", new File(outputPath));
+            System.out.println(filePath + ".png >>>>> " + result);
         }
         System.out.println(System.currentTimeMillis()-start+"ms");
     }
