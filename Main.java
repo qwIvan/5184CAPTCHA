@@ -216,7 +216,7 @@ public class Main {
 //			ImageIO.write(bi, "PNG", new File("temp/"+getSingleCharNum(singleChar)));//添加对比源
             result += singleChar;
         }
-        String outputPath = "result/"+result+'@'+index+".png";
+        String outputPath = "result/"+index+"=>"+result+".png";
         ImageIO.write(ImageIO.read(new File(filePath)), "PNG", new File(outputPath));
         return outputPath;
     }
